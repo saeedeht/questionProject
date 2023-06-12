@@ -26,6 +26,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           color: "#777D8E",
+          textTransform: "none",
         },
       },
     },
