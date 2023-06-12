@@ -6,7 +6,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <MultipleChoice />
+      <MultipleChoice id={0} body={''}  />
     </div>
   );
 }
