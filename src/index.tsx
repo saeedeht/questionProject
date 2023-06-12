@@ -27,6 +27,7 @@ const theme = createTheme({
         root: {
           color: "#777D8E",
           textTransform: "none",
+          borderRadius: "5px",
         },
       },
     },
