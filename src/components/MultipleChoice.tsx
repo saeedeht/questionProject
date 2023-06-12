@@ -21,24 +21,20 @@ export interface MultipleChoiceProps {
 const MultipleChoice: FC<MultipleChoiceProps> = ({ interaction }) => {
   return (
     <Stack spacing={4}>
-      <Typography variant="subtitle2" component="h2" sx={{ textAlign: "left" }}>
+      <Typography variant="subtitle2" component="h2">
         {interaction.question}
       </Typography>
-
-      {interaction.choices.map((choice, i) => (
-        <Stack
-          key={choice.id}
-          direction="row"
-          justifyContent="flex-start"
-          spacing={2}
-        >
-          <Button sx={{ borderRadius: "5px", gap: "5px" }}>
-            {i}
-            <Checkbox />
-            {choice.content}
+      <Stack spacing={2} style={{ alignItems: "start" }}>
+        {interaction.choices.map((choice, i) => (
+          <Button key={choice.id}>
+            <Stack direction="row" spacing={2}>
+              {i}
+              <Checkbox checked={choice.isSelected} />
+              {choice.content}
+            </Stack>
           </Button>
-        </Stack>
-      ))}
+        ))}
+      </Stack>
     </Stack>
   );
 };

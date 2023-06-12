@@ -6,6 +6,8 @@ import {
   ReportProblemOutlined as ReportProblemOutlinedIcon,
 } from "@mui/icons-material";
 
+export type QuestionFlag = "marked" | "ignored" | "reported";
+
 export interface Question {
   id: string;
   interactions: any[];
@@ -14,10 +16,18 @@ export interface Question {
 export interface QuestionProps {
   n: number;
   question: Question;
+  flags: QuestionFlag[];
+  onFlagsChange(value: QuestionFlag[]): void;
   children: ReactNode;
 }
 
-const Question: FC<QuestionProps> = ({ n, question, children }) => (
+const Question: FC<QuestionProps> = ({
+  n,
+  question,
+  flags,
+  onFlagsChange,
+  children,
+}) => (
   <Stack
     direction="column"
     spacing={4}
@@ -45,9 +55,30 @@ const Question: FC<QuestionProps> = ({ n, question, children }) => (
       >
         {n}
       </Box>
-      <Button startIcon={<BookmarkBorderIcon />}>Mark</Button>
-      <Button startIcon={<VisibilityOffOutlinedIcon />}>Ignore</Button>
-      <Button startIcon={<ReportProblemOutlinedIcon />}>Ignore</Button>
+      <Button
+        startIcon={<BookmarkBorderIcon />}
+        sx={(t) => ({
+          color: flags.includes("marked") ? t.palette.info.main : undefined,
+        })}
+      >
+        Mark
+      </Button>
+      <Button
+        startIcon={<VisibilityOffOutlinedIcon />}
+        sx={(t) => ({
+          color: flags.includes("ignored") ? t.palette.warning.main : undefined,
+        })}
+      >
+        Ignore
+      </Button>
+      <Button
+        startIcon={<ReportProblemOutlinedIcon />}
+        sx={(t) => ({
+          color: flags.includes("reported") ? t.palette.error.main : undefined,
+        })}
+      >
+        Report
+      </Button>
     </Stack>
     <Box>{children}</Box>
   </Stack>
