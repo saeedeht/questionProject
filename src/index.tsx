@@ -11,6 +11,17 @@ const theme = createTheme({
     },
   },
   components: {
+    MuiStack: {
+      defaultProps: {
+        useFlexGap: true,
+      },
+      variants: [
+        {
+          props: { direction: "row" },
+          style: { alignItems: "center" },
+        },
+      ],
+    },
     MuiButton: {
       styleOverrides: {
         root: {

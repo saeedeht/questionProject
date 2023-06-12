@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Typography, Avatar, Button, Checkbox } from "@mui/material";
+import { Typography, Button, Checkbox, Box } from "@mui/material";
 import Stack from "@mui/material/Stack";
 import {
   BookmarkBorder as BookmarkBorderIcon,
@@ -28,21 +28,24 @@ const MultipleChoice: FC<MultipleChoiceProps> = ({ question }) => {
         padding: "24px",
       }}
     >
-      <Stack
-        direction="row"
-        justifyContent="flex-start"
-        alignItems="center"
-        spacing={2}
-      >
-        <Avatar
+      <Stack direction="row" justifyContent="flex-start" spacing={2}>
+        <Box
+          component={Stack}
           sx={(t) => ({
             backgroundColor: t.palette.primary.main,
-            width: 48,
-            height: 48,
+            backgroundClip: "content-box",
+            justifyContent: "center",
+            alignItems: "center",
+            width: 60,
+            height: 60,
+            border: "1px solid #D4D6DC",
+            p: "6px",
+            color: "white",
+            borderRadius: "100%",
           })}
         >
           {question.id}
-        </Avatar>
+        </Box>
 
         <Button
           sx={{ borderRadius: "5px", gap: "5px" }}
@@ -68,9 +71,6 @@ const MultipleChoice: FC<MultipleChoiceProps> = ({ question }) => {
 
       <Stack>
         <Stack direction="row" justifyContent="center" alignItems="flex-start">
-          {/* <Typography  variant="subtitle2" component="h2"  sx={{textAlign:"left"}}  >
-                  Efforts to explain how the pterosaurs became able to fly have led to suggestions that they launched themselves by jumping from cliffs, by dropping from trees, or even by rising into light winds from the crests of waves. Each explanation has its difficulties.
-                  </Typography> */}
           <Typography
             variant="subtitle2"
             component="h2"
@@ -82,12 +82,7 @@ const MultipleChoice: FC<MultipleChoiceProps> = ({ question }) => {
       </Stack>
 
       <Stack>
-        <Stack
-          direction="row"
-          justifyContent="flex-start"
-          alignItems="center"
-          spacing={2}
-        >
+        <Stack direction="row" justifyContent="flex-start" spacing={2}>
           <Button aria-label="Example" sx={{ borderRadius: "5px", gap: "5px" }}>
             <Typography variant="subtitle2" component="h2">
               1
@@ -99,12 +94,7 @@ const MultipleChoice: FC<MultipleChoiceProps> = ({ question }) => {
           </Button>
         </Stack>
 
-        <Stack
-          direction="row"
-          justifyContent="flex-start"
-          alignItems="center"
-          spacing={2}
-        >
+        <Stack direction="row" justifyContent="flex-start" spacing={2}>
           <Button aria-label="Example" sx={{ borderRadius: "5px", gap: "5px" }}>
             <Typography variant="subtitle2" component="h2">
               2
@@ -116,12 +106,7 @@ const MultipleChoice: FC<MultipleChoiceProps> = ({ question }) => {
           </Button>
         </Stack>
 
-        <Stack
-          direction="row"
-          justifyContent="flex-start"
-          alignItems="center"
-          spacing={2}
-        >
+        <Stack direction="row" justifyContent="flex-start" spacing={2}>
           <Button aria-label="Example" sx={{ borderRadius: "5px", gap: "5px" }}>
             <Typography variant="subtitle2" component="h2">
               3
@@ -133,12 +118,7 @@ const MultipleChoice: FC<MultipleChoiceProps> = ({ question }) => {
           </Button>
         </Stack>
 
-        <Stack
-          direction="row"
-          justifyContent="flex-start"
-          alignItems="center"
-          spacing={2}
-        >
+        <Stack direction="row" justifyContent="flex-start" spacing={2}>
           <Button aria-label="Example" sx={{ borderRadius: "5px", gap: "5px" }}>
             <Typography variant="subtitle2" component="h2">
               4
