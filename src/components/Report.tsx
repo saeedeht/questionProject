@@ -44,7 +44,15 @@ const Report : FC <ReportProps> = () => {
 
     return (
         //  main stack
-       <Stack sx={{p:24,borderRadius:"12px",display:"flex",flexDirection:"column",alignItems:"flex-start",justifyContent:"flex-start",backgroundColor:"white"}} >
+      <Stack sx={{
+        p: 24,
+        borderRadius: "12px",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "flex-start",
+        justifyContent: "flex-start",
+        backgroundColor: "white"
+      }} >
         {/* navbar stack */}
         <Stack  sx={{display:"flex",flexDirection:"row",alignItems:"flex-start",justifyContent:"space-between",gap:"10px"}} >
             {/* left part */}
